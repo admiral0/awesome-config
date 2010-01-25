@@ -1,1 +1,15 @@
 Configuration of awesome for eeepc
+Features:
+ * Separated configuration files
+ * Vicius widgets
+ * Haiku style CPU meter
+ * Battery meter
+ * RAM
+ * Tags switcher popup
+
+
+TODO:
+ * Popup MPD
+ * Popup `screen` launcher
+ * Hardware status wibar
+ * Systray ( where is it??????? )
