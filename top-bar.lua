@@ -29,7 +29,6 @@ tasklist_widgets.buttons = awful.util.table.join(
 -- Bar
 
 bar_widgets = {}
-mod_widgets = {}
 
 mod_cpu1 = awful.widget.progressbar()
 mod_cpu1:set_width(7)
@@ -45,7 +44,6 @@ vicious.register(mod_cpu1, vicious.widgets.cpu,
                         return args[2]
                 end
         , 1.3)
-table.insert(mod_widgets, mod_cpu1)
 mod_cpu2 = awful.widget.progressbar()
 mod_cpu2:set_width(7)
 mod_cpu2:set_height(18)
@@ -61,7 +59,6 @@ vicious.register(mod_cpu2, vicious.widgets.cpu,
                 end
         , 1.1)
 awful.widget.layout.margins[mod_cpu2] = { right = 3 }
-table.insert(mod_widgets, mod_cpu2)
 
 mod_mem = awful.widget.progressbar()
 mod_mem:set_width(8)
@@ -77,7 +74,6 @@ vicious.register(mod_mem, vicious.widgets.mem,
                         return args[1]
                 end
         , 60, "BAT0")
-table.insert(mod_widgets, mod_mem)
 awful.widget.layout.margins[mod_mem] = { right = 1 }
 
 mod_bat = widget({type = "textbox"})
@@ -99,12 +95,11 @@ mod_bat:set_gradient_colors({ beautiful.fg_normal, beautiful.fg_focus, beautiful
 vicious.register(mod_bat, vicious.widgets.bat,
                 function (widget, args)
 			local res = "<b>BAT:</b> "
-                        if   tonumber(args[2]) == nil then res = res .. " 100%  /" end
-                        res =  res .. " " .. args[2] .. "% " .. args[3]
+                        if   tonumber(args[2]) == nil then res = res .. "100%  / " end
+                        res =  res  .. args[2] .. "% " .. args[3] .. " "
 			return res
                 end
         , 60, "BAT0")
-table.insert(mod_widgets, mod_bat)
 
 -- Create a bar for every screen
 for s = 1, screen.count() do
@@ -119,9 +114,10 @@ for s = 1, screen.count() do
 	-- Add widgets
 	-- Right
 	if ( s == 1 ) then table.insert( right_aligned, systray_widget ) end -- Systray only on screen 1
+	table.insert( right_aligned, mod_bat )
 	table.insert( right_aligned, clock_widget )
 	bar_widgets[s].widgets = {
-		mod_widgets,
+		mod_cpu1, mod_cpu2,
 		prompt_widgets[s],
 		right_aligned,
 		tasklist_widgets[s],
