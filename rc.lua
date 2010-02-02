@@ -46,4 +46,4 @@ require("keybindings")
 require("rules-signals")
 
 -- Tooltips
--- require("tooltips")
+require("tooltips")
