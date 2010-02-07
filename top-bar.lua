@@ -60,47 +60,25 @@ vicious.register(mod_cpu2, vicious.widgets.cpu,
         , 1.1)
 awful.widget.layout.margins[mod_cpu2] = { right = 3 }
 
-mod_mem = awful.widget.progressbar()
-mod_mem:set_width(8)
-mod_mem:set_height(18)
-mod_mem:set_vertical(true)
-mod_mem:set_background_color(beautiful.bg_normal)
-mod_mem:set_border_color(beautiful.border_marked)
-mod_mem:set_color(beautiful.fg_normal)
-mod_mem:set_gradient_colors({ beautiful.fg_normal, beautiful.fg_focus, beautiful.fg_urgent })
-vicious.register(mod_mem, vicious.widgets.mem,
-                function (widget, args)
-                        if   tonumber(args[1]) == nil then return 100 end
-                        return args[1]
-                end
-        , 60, "BAT0")
-awful.widget.layout.margins[mod_mem] = { right = 1 }
-
+-- Battery widget
+-- TODO colors
 mod_bat = widget({type = "textbox"})
---mod_bat_t = awful.tooltip({
---	objects = { mod_bat },
---	timer_function = function ()
---		return awful.util.pread("acpi -V")
---	end,
---	timeout = 5
-
---[[mod_bat:set_width(8)
-mod_bat:set_height(18)
-mod_bat:set_vertical(true)
-mod_bat:set_background_color(beautiful.bg_normal)
-mod_bat:set_border_color(beautiful.border_marked)
-mod_bat:set_color(beautiful.fg_normal)
-mod_bat:set_gradient_colors({ beautiful.fg_normal, beautiful.fg_focus, beautiful.fg_urgent })
---]]
 vicious.register(mod_bat, vicious.widgets.bat,
                 function (widget, args)
-			local res = "<b>BAT:</b> "
-                        if   tonumber(args[2]) == nil then res = res .. "100% / " end
-                        res =  res  .. args[2] .. "%," .. args[3] .. " "
+			local res = "<b>[</b>" -- = "<b>BAT:</b> "
+                        if   tonumber(args[2]) == nil then res = res .. "100% /<b>]</b> " end
+                        res =  res  .. args[2] .. "% " .. args[3] .. "<b>]</b> "
 			return res
                 end
         , 60, "BAT0")
 
+-- Wifi widgets (Integrated & USB)
+mod_wifi_1=widget({type = "textbox"})
+vicious.register(mod_wifi_1, vicious.widgets.wifi,'<b>[</b>${ssid} ${link}<b>]</b>' , 5, 'wlan0')
+-- TODO find a way to hide when unplugged
+-- mod_wifi_2=widget({type = "textbox"})
+-- vicious.register(mod_wifi_2, vicious.widgets.wifi,'<b>[</b>${ssid} ${link}<b>]</b>' , 5, 'wlan1')
+			
 -- Create a bar for every screen
 for s = 1, screen.count() do
 	-- Create Promptbox
@@ -114,6 +92,8 @@ for s = 1, screen.count() do
 	-- Add widgets
 	-- Right
 	if ( s == 1 ) then table.insert( right_aligned, systray_widget ) end -- Systray only on screen 1
+	table.insert( right_aligned, mod_wifi_1)
+	-- table.insert( right_aligned, mod_wifi_2)
 	table.insert( right_aligned, mod_bat )
 	table.insert( right_aligned, clock_widget )
 	bar_widgets[s].widgets = {
