@@ -95,8 +95,8 @@ mod_bat:set_gradient_colors({ beautiful.fg_normal, beautiful.fg_focus, beautiful
 vicious.register(mod_bat, vicious.widgets.bat,
                 function (widget, args)
 			local res = "<b>BAT:</b> "
-                        if   tonumber(args[2]) == nil then res = res .. "100%  / " end
-                        res =  res  .. args[2] .. "% " .. args[3] .. " "
+                        if   tonumber(args[2]) == nil then res = res .. "100% / " end
+                        res =  res  .. args[2] .. "%," .. args[3] .. " "
 			return res
                 end
         , 60, "BAT0")
