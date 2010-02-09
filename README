@@ -4,11 +4,11 @@ Features:
  * Vicius widgets
  * Haiku style CPU meter
  * Battery meter
- * RAM
  * Tags switcher popup
 
 
 TODO:
+ * Better tag management. (Idea: use shifty and name each tag after its program, then replace wibox with menu)
  * Popup XMMS2
  * Popup `screen` launcher
  * Hardware status wibar
