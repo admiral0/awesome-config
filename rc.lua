@@ -47,3 +47,6 @@ require("rules-signals")
 
 -- Tooltips
 require("tooltips")
+
+--Media
+require("xmms-bar")

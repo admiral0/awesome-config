@@ -2,7 +2,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
-
+    ---[[
+ 	awful.key({modkey, }, "a", function () mediabar.visible=not mediabar.visible end) ,
+    --]]
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
