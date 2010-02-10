@@ -27,7 +27,7 @@ void run (xmmsc_connection_t *connection){
 	 * Variables that we'll need later
 	 */
 	const char *val;
-	const char *val1;
+	const char *val1,*val2;
 	char *exec_s;
 	int intval;
 	int id;
@@ -91,13 +91,18 @@ void run (xmmsc_connection_t *connection){
 		val = "No Title";
 	}
 
+	if (!xmmsv_dict_get (infos, "album", &dict_entry) ||
+	    !xmmsv_get_string (dict_entry, &val2)) {
+		val = "No Album";
+	}
+
 	if (!xmmsv_dict_get (infos, "bitrate", &dict_entry) ||
 	    !xmmsv_get_int (dict_entry, &intval)) {
 		intval = 0;
 	}
 	//"echo 'med_info.text=\"\"'|awesome-client"38
-	exec_s=malloc(42+strlen(val)+strlen(val1));
-	sprintf(exec_s,"echo 'med_info.text=\"%s - %s\"'|awesome-client",val,val1);
+	exec_s=malloc((45+strlen(val)+strlen(val1)+strlen(val2))*sizeof(char));
+	sprintf(exec_s,"echo 'med_info.text=\"%s - %s (%s)\"'|awesome-client",val,val1,val2);
 	system(exec_s);
 	free(exec_s);
 	xmmsv_unref (infos);

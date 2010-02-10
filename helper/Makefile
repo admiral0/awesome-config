@@ -3,7 +3,8 @@ CFLAGS = -I/usr/include/xmms2
 LDFLAGS = -lxmmsclient
 CC = gcc
 LD= ld
-DESTDIR=/usr
+PREFIX = /usr
+DESTDIR=
 all: executable
 executable: awesome-helper.c
 	@echo Compiling awesome-helperd..
@@ -12,6 +13,6 @@ clean:
 	@echo Removing awesome-helperd
 	@rm awesome-helperd
 install:
-	install -D -m755 awesome-helperd $(DESTDIR)/bin/awesome-helperd
+	install -D -m755 awesome-helperd $(DESTDIR)$(PREFIX)/bin/awesome-helperd
 uninstall:
 	rm $(DESTDIR)/bin/awesome-helperd

@@ -10,3 +10,4 @@ mediabar.widgets={
 }
 --]]
 mediabar.visible = false
+awful.util.spawn("awesome-helperd",false,1)
