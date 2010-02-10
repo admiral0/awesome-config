@@ -8,9 +8,9 @@ url="http://github.com/admiral0"
 license=('GPL')
 depends=("glib2" "xmms2")
 source=(awesome-helper.c Makefile)
-md5sums=('7cb477e20fe4f77677a748fed12d1f0b'
-         'e5df025a415fdc86cdd5aeb6243668b5')
 
+md5sums=('4ec16a022a12d9813ae3e5ddf11481df'
+         'e5df025a415fdc86cdd5aeb6243668b5')
 build() {
   cd "$srcdir"
 

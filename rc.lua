@@ -4,6 +4,7 @@ require("awful.autofocus")
 require("awful.rules")
 require("beautiful")
 require("naughty")
+require("awful.remote")
 require("vicious")
 
 -- Theme TODO

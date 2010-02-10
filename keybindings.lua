@@ -3,7 +3,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     ---[[
- 	awful.key({modkey, }, "a", function () mediabar.visible=not mediabar.visible end) ,
+ 	awful.key({modkey, }, "a", 	function () 
+						--[[
+						if(not mediabar.visibile) then
+							mediabar.visible=not mediabar.visible
+							awful.util.spawn("awesome-helperd",false,1)
+						else
+						--]]
+							mediabar.visible=not mediabar.visible
+						--[[
+							awful.util.spawn_with_shell("killall awesome-helperd",false,1)
+						end
+						--]]
+ 					end) ,
     --]]
     awful.key({ modkey,           }, "j",
         function ()
