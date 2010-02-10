@@ -1,0 +1,21 @@
+# Contributor: Your Name <youremail@domain.com>
+pkgname=awesome-helperd
+pkgver=0.1
+pkgrel=1
+pkgdesc="A helper to admiral0's script for xmms2-bar"
+arch=(i686 x86_64 arm)
+url="http://github.com/admiral0"
+license=('GPL')
+depends=("glib2" "xmms2")
+source=(awesome-helper.c Makefile)
+md5sums=('7cb477e20fe4f77677a748fed12d1f0b'
+         'e5df025a415fdc86cdd5aeb6243668b5')
+
+build() {
+  cd "$srcdir"
+
+  make || return 1
+  make DESTDIR="$pkgdir/" install
+}
+
+# vim:set ts=2 sw=2 et:

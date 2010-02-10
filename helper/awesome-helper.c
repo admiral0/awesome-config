@@ -21,18 +21,7 @@
 /* include xmmsclient header */
 #include <xmmsclient/xmmsclient.h>
 
-int
-main (int argc, char **argv)
-{
-	/*
-	 * The first part of this program is
-	 * commented on in tut1.c and tut2.c
-	 */
-	xmmsc_connection_t *connection;
-	xmmsc_result_t *result;
-	xmmsv_t *return_value;
-	const char *err_buf;
-
+void run (xmmsc_connection_t *connection){
 	/*
 	 * Variables that we'll need later
 	 */
@@ -41,12 +30,10 @@ main (int argc, char **argv)
 	int id;
 	xmmsv_t *dict_entry;
 	xmmsv_t *infos;
+	xmmsc_result_t *result;
+	xmmsv_t *return_value;
+	const char *err_buf;
 
-	connection = xmmsc_init ("tutorial3");
-	if (!connection) {
-		fprintf (stderr, "OOM!\n");
-		exit (EXIT_FAILURE);
-	}
 
 	if (!xmmsc_connect (connection, getenv ("XMMS_PATH"))) {
 		fprintf (stderr, "Connection failed: %s\n",
@@ -225,6 +212,16 @@ main (int argc, char **argv)
 
 	xmmsc_unref (connection);
 
-	return (EXIT_SUCCESS);
 }
 
+int main (int argc, char ** argv){
+	xmmsc_connection_t *connection;
+	connection = xmmsc_init ("tutorial3");
+	if (!connection) {
+		fprintf (stderr, "OOM!\n");
+		exit (EXIT_FAILURE);
+	}
+	run (connection);
+
+	return (EXIT_SUCCESS);
+}
