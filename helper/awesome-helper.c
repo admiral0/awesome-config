@@ -115,7 +115,7 @@ void run (xmmsc_connection_t *connection){
 
 int main (int argc, char ** argv){
 	xmmsc_connection_t *connection;
-	connection = xmmsc_init ("tutorial3");
+	connection = xmmsc_init ("awesome-helperd");
 	if (!connection) {
 		fprintf (stderr, "OOM!\n");
 		exit (EXIT_FAILURE);

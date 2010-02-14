@@ -74,10 +74,35 @@ vicious.register(mod_bat, vicious.widgets.bat,
 
 -- Wifi widgets (Integrated & USB)
 mod_wifi_1=widget({type = "textbox"})
-vicious.register(mod_wifi_1, vicious.widgets.wifi,'<b>[</b>${ssid} ${link}<b>]</b>' , 5, 'wlan0')
--- TODO find a way to hide when unplugged
--- mod_wifi_2=widget({type = "textbox"})
--- vicious.register(mod_wifi_2, vicious.widgets.wifi,'<b>[</b>${ssid} ${link}<b>]</b>' , 5, 'wlan1')
+vicious.register(mod_wifi_1, vicious.widgets.wifi,function (widget,args)
+							local retstr
+							if(args['{ssid}']=="N/A") then
+								retstr="<b>[</b>Inactive<b>]</b>"
+							else
+								if(not args['{link}']) then
+									retstr="<b>[</b>"..args['{ssid}'].." -".."<b>]</b>"
+								else
+									retstr="<b>[</b>"..args['{ssid}'].." "..args['{link}'].."<b>]</b>"
+								end
+							end
+							return retstr
+						end , 5, 'wlan0')
+mod_wifi_2=widget({type = "textbox"})
+vicious.register(mod_wifi_2, vicious.widgets.wifi,function (widget,args)
+							local retstr
+							if(args['{ssid}']=="N/A") then
+								retstr="<b>[</b>Inactive<b>]</b>"
+							else
+								if(not args['{link}']) then
+									retstr="<b>[</b>"..args['{ssid}'].." -".."<b>]</b>"
+								else
+									retstr="<b>[</b>"..args['{ssid}'].." "..args['{link}'].."<b>]</b>"
+								end
+
+							end
+							return retstr
+
+						end , 5, 'wlan1')
 			
 -- Create a bar for every screen
 for s = 1, screen.count() do
@@ -93,7 +118,7 @@ for s = 1, screen.count() do
 	-- Right
 	if ( s == 1 ) then table.insert( right_aligned, systray_widget ) end -- Systray only on screen 1
 	table.insert( right_aligned, mod_wifi_1)
-	-- table.insert( right_aligned, mod_wifi_2)
+	table.insert( right_aligned, mod_wifi_2)
 	table.insert( right_aligned, mod_bat )
 	table.insert( right_aligned, clock_widget )
 	bar_widgets[s].widgets = {
