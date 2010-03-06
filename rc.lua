@@ -50,4 +50,7 @@ require("rules-signals")
 require("tooltips")
 
 --Media
-require("xmms-bar")
+require("media-bar")
+
+awful.util.spawn("gvolwheel")
+awful.util.spawn("nm-applet --sm-disable")

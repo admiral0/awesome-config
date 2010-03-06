@@ -72,7 +72,7 @@ vicious.register(mod_bat, vicious.widgets.bat,
                 end
         , 60, "BAT0")
 
--- Wifi widgets (Integrated & USB)
+--[[ Wifi widgets (Integrated & USB)
 mod_wifi_1=widget({type = "textbox"})
 vicious.register(mod_wifi_1, vicious.widgets.wifi,function (widget,args)
 							local retstr
@@ -103,7 +103,7 @@ vicious.register(mod_wifi_2, vicious.widgets.wifi,function (widget,args)
 							return retstr
 
 						end , 5, 'wlan1')
-			
+--]]			
 -- Create a bar for every screen
 for s = 1, screen.count() do
 	-- Create Promptbox
@@ -117,12 +117,13 @@ for s = 1, screen.count() do
 	-- Add widgets
 	-- Right
 	if ( s == 1 ) then table.insert( right_aligned, systray_widget ) end -- Systray only on screen 1
-	table.insert( right_aligned, mod_wifi_1)
-	table.insert( right_aligned, mod_wifi_2)
 	table.insert( right_aligned, mod_bat )
 	table.insert( right_aligned, clock_widget )
+	if (s == 1) then mod_cpu = {mod_cpu1 , mod_cpu2} -- Cpu widget only on screen 1
+	else mod_cpu = {}
+	end
 	bar_widgets[s].widgets = {
-		mod_cpu1, mod_cpu2,
+		mod_cpu,
 		prompt_widgets[s],
 		right_aligned,
 		tasklist_widgets[s],
