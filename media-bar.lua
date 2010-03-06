@@ -3,7 +3,7 @@ mediabar = awful.wibox({position = 'bottom'})
 ---[[
 med_info=widget({type="textbox"})
 med_right_aligned={layout = awful.widget.layout.horizontal.rightleft}
-mediabar.height=20
+mediabar.height=15
 mediabar.widgets={
 --	med_play,
 	med_info,
