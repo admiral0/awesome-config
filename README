@@ -1,4 +1,5 @@
 Configuration of awesome for eeepc
+It works only with awesome from git it seems.
 Features:
  * Separated configuration files
  * Vicius widgets

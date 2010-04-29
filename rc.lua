@@ -5,7 +5,7 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("awful.remote")
-require("vicious")
+--require("vicious")
 
 -- Theme TODO
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
@@ -38,7 +38,7 @@ for s=1,screen.count() do
 end
 
 -- Defines top bar and widgets inside it.
-require("top-bar")
+-- require("top-bar")
 
 -- Defines Keybindings
 require("keybindings")
