@@ -8,10 +8,10 @@ require("awful.remote")
 --require("vicious")
 
 -- Theme TODO
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 
 -- Variables
-terminal_app = "lilyterm"
+terminal_app = "sakura"
 editor_app = terminal_app .. " -e vim"
 
 modkey = "Mod4"
@@ -38,7 +38,7 @@ for s=1,screen.count() do
 end
 
 -- Defines top bar and widgets inside it.
--- require("top-bar")
+require("top-bar")
 
 -- Defines Keybindings
 require("keybindings")
@@ -52,5 +52,5 @@ require("tooltips")
 --Media
 require("media-bar")
 
-awful.util.spawn("gvolwheel")
-awful.util.spawn("nm-applet --sm-disable")
+-- awful.util.spawn("gvolwheel")
+-- awful.util.spawn("nm-applet --sm-disable")
