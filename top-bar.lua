@@ -7,7 +7,7 @@ mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
 mywibox = {}
-mypromptbox = {}
+prompt_widgets = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
@@ -46,7 +46,7 @@ mytasklist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt()
+    prompt_widgets[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -75,7 +75,7 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         mytaglist[s],
-        mypromptbox[s],
+        prompt_widgets[s],
         right_aligned,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.leftright,
