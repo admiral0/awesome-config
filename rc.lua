@@ -5,10 +5,10 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("awful.remote")
---require("vicious")
+require("vicious")
 
 -- Theme TODO
-beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- Variables
 terminal_app = "sakura"
@@ -18,14 +18,14 @@ modkey = "Mod4"
 
 layouts =
 {
+	awful.layout.suit.tile.top,
 	awful.layout.suit.fair,
         awful.layout.suit.max,
-	awful.layout.suit.floating
+	awful.layout.suit.floating,
 --	awful.layout.suit.tile,
 --	awful.layout.suit.tile.left,
 --	awful.layout.suit.tile.bottom,
---	awful.layout.suit.tile.top,
---	awful.layout.suit.fair.horizontal,
+	awful.layout.suit.fair.horizontal
 --	awful.layout.suit.spiral,
 --	awful.layout.suit.spiral.dwindle,
 --	awful.layout.suit.max.fullscreen,
@@ -52,5 +52,4 @@ require("tooltips")
 --Media
 require("media-bar")
 
--- awful.util.spawn("gvolwheel")
 -- awful.util.spawn("nm-applet --sm-disable")
