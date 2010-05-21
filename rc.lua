@@ -9,6 +9,7 @@ require("vicious")
 
 -- Theme TODO
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
 
 -- Variables
 terminal_app = "sakura"
