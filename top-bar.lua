@@ -74,7 +74,7 @@ for s = 1, screen.count() do
     }
     if s == 1 then
 	 table.insert(right_aligned, mysystray)
-	 --table.insert(right_aligned, batstatus)
+	 table.insert(right_aligned, batstatus)
 	 table.insert(right_aligned, netstatus)
      end
     table.insert(right_aligned, mytextclock)
