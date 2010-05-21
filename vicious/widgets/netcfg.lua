@@ -6,6 +6,8 @@
 -- {{{ Grab environment
 local io = { popen = io.popen }
 local setmetatable = setmetatable
+local table = { insert = table.insert }
+local chop = string.sub
 -- }}}
 
 
@@ -18,16 +20,18 @@ local function worker(format, warg)
 
     -- Initialize counters
     local profiles = ""
-    local command="netcfgCli active "
-
-    local f = io.popen(pkg.cmd)
+    local tprofiles = {}
+    local f = io.popen("ls /var/run/network/profiles")
 
     for line in f:lines() do
-        profiles = profiles .. " "..line
+        if(#line>1) then
+          table.insert(tprofiles,line)
+          profiles = profiles .. warg ..line
+        end
     end
     f:close()
-
-    return {profiles}
+    profiles=chop(profiles,#warg+1)
+    return {profiles,tprofiles}
 end
 -- }}}
 

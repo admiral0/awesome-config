@@ -12,6 +12,8 @@ mylayoutbox = {}
 mytaglist = {}
 batstatus = widget({ type = "textbox" })
 vicious.register(batstatus, vicious.widgets.bat, " <b>$3 $2$1</b>", 60,"BAT0")
+netstatus = widget({ type = "textbox" })
+vicious.register(netstatus, vicious.widgets.netcfg, " <b>$1</b>", 121,"</b>:<b>")
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
                     awful.button({ modkey }, 1, awful.client.movetotag),
@@ -72,7 +74,8 @@ for s = 1, screen.count() do
     }
     if s == 1 then
 	 table.insert(right_aligned, mysystray)
-	 table.insert(right_aligned, batstatus)
+	 --table.insert(right_aligned, batstatus)
+	 table.insert(right_aligned, netstatus)
      end
     table.insert(right_aligned, mytextclock)
     table.insert(right_aligned, mylayoutbox[s])
