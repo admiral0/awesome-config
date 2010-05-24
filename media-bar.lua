@@ -7,7 +7,7 @@ btn_next = awful.widget.launcher({ image = image(iconpath.."next.png"),  command
 med_info=widget({type="textbox"})
 med_right_aligned={ layout = awful.widget.layout.horizontal.rightleft}
 med_bitrate=widget({type="textbox"})
-btn_win = awful.widget.button({ image = image(iconpath.."show.png"),  command = "audtool mainwin-show off && audtool mainwin-show on" })
+btn_win = awful.widget.button({ image = image(iconpath.."show.png"),  command = "audtool mainwin-show off;audtool mainwin-show on" })
 btn_prefs = awful.widget.button({ image = image(iconpath.."prefs.png"),  command = "audtool preferences-show on" })
 --table.insert(med_right_align)
 table.insert(med_right_aligned, med_bitrate)
