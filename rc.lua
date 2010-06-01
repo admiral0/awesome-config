@@ -14,6 +14,7 @@ iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
 -- Variables
 terminal_app = "sakura"
 editor_app = terminal_app .. " -e vim"
+browser_app = "firefox"
 
 modkey = "Mod4"
 
@@ -34,12 +35,16 @@ layouts =
 }
 
 tags ={}
+--[[
 for s=1,screen.count() do
 	tags[s] = awful.tag({1,2,3,4,5,6,7,8,9},s,layouts[1])
 end
-
+--]]
+-- Shifty library
+ require("shifty")
 -- Defines top bar and widgets inside it.
 require("top-bar")
+ require("shifty-config")
 
 -- Defines Keybindings
 require("keybindings")
