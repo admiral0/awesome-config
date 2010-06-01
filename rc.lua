@@ -15,6 +15,7 @@ iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
 terminal_app = "sakura"
 editor_app = terminal_app .. " -e vim"
 browser_app = "firefox"
+mail_app="thunderbird"
 
 modkey = "Mod4"
 

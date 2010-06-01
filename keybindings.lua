@@ -55,7 +55,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-
+    ---[[ Shifty {{{ 
+    awful.key({ modkey, "Shift"}, "a", shifty.add),
+    awful.key({ modkey, "Shift"}, "d", shifty.del),
+    awful.key({ modkey, "Shift"}, "r", shifty.rename),
+    --]]
     -- Prompt
     awful.key({ modkey },            "r",     function () prompt_widgets[mouse.screen]:run() end),
 
@@ -126,7 +130,7 @@ clientbuttons = awful.util.table.join(
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
---[[ bindings / global / shifty.getpos
+---[[ bindings / global / shifty.getpos
 for i=1, ( shifty.config.maxtags or 9 ) do
   
   globalkeys = awful.util.table.join(globalkeys, awful.key({ modkey }, i,
