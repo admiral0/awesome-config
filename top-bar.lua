@@ -11,7 +11,7 @@ prompt_widgets = {}
 mylayoutbox = {}
 mytaglist = {}
 batstatus = widget({ type = "textbox" })
-vicious.register(batstatus, vicious.widgets.bat, " <b>$3 $2$1</b>", 60,"BAT0")
+vicious.register(batstatus, vicious.widgets.bat, " <b>$3 $2$1</b>", 60,"BAT1")
 netstatus = widget({ type = "textbox" })
 vicious.register(netstatus, vicious.widgets.netcfg, " <b>$1</b>", 121,"</b>:<b>")
 mytaglist.buttons = awful.util.table.join(

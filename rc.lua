@@ -8,7 +8,7 @@ require("awful.remote")
 require("vicious")
 
 -- Theme TODO
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
 
 -- Variables
@@ -36,16 +36,13 @@ layouts =
 }
 
 tags ={}
---[[
+---[[
 for s=1,screen.count() do
 	tags[s] = awful.tag({1,2,3,4,5,6,7,8,9},s,layouts[1])
 end
 --]]
--- Shifty library
- require("shifty")
 -- Defines top bar and widgets inside it.
 require("top-bar")
- require("shifty-config")
 
 -- Defines Keybindings
 require("keybindings")
