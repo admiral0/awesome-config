@@ -1,5 +1,6 @@
 -- {{{ Wibox
 -- Create a textclock widget
+require("desktop")
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
@@ -82,6 +83,7 @@ for s = 1, screen.count() do
 
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
+        mylauncher,
         mytaglist[s],
         prompt_widgets[s],
         right_aligned,

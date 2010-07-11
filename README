@@ -2,7 +2,7 @@ Configuration of awesome for laptop
 It works only with awesome from git it seems.
 Features:
  * Separated configuration files
- * freedesktop menu
+ * freedesktop menu (You need awesome-freedesktop library awesome-fredesktop-git on Archlinux)
 
 Laptop:
 Acer TimelineX
