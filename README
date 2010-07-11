@@ -1,8 +1,12 @@
-Configuration of awesome for eeepc
+Configuration of awesome for laptop 
 It works only with awesome from git it seems.
 Features:
  * Separated configuration files
+ * freedesktop menu
 
+Laptop:
+Acer TimelineX
+You should adapt scripts to your hardware
 
 TODO:
  * Battery meter (pure lua implementation)
@@ -10,3 +14,4 @@ TODO:
  * Popup XMMS2
  * Popup `screen` launcher
  * Hardware status wibar
+ * separate HW related functions in separate file
