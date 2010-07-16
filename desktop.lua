@@ -1,6 +1,6 @@
 require('freedesktop.utils')
   freedesktop.utils.terminal = "sakura" 
-  freedesktop.utils.icon_theme = 'gnome' -- /usr/share/icons/
+  freedesktop.utils.icon_theme = 'elementary' -- /usr/share/icons/
   require('freedesktop.menu')
 
   menu_items = freedesktop.menu.new()

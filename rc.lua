@@ -10,14 +10,8 @@ require("vicious")
 -- Theme TODO
 beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
-
--- Variables
-terminal_app = "sakura"
-editor_app = terminal_app .. " -e vim"
-browser_app = "firefox"
-mail_app="thunderbird"
-
-modkey = "Mod4"
+-- Global Variables
+require("global")
 
 layouts =
 {

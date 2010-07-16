@@ -15,6 +15,8 @@ batstatus = widget({ type = "textbox" })
 vicious.register(batstatus, vicious.widgets.bat, " <b>$3 $2$1</b>", 60,"BAT1")
 netstatus = widget({ type = "textbox" })
 vicious.register(netstatus, vicious.widgets.netcfg, " <b>$1</b>", 121,"</b>:<b>")
+tempstatus = widget({ type = "textbox" })
+vicious.register(tempstatus,vicious.widgets.thermal," <b>$1 C°</b> ", 61,"thermal_zone0")
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
                     awful.button({ modkey }, 1, awful.client.movetotag),
@@ -75,6 +77,7 @@ for s = 1, screen.count() do
     }
     if s == 1 then
 	 table.insert(right_aligned, mysystray)
+	 table.insert(right_aligned,tempstatus)
 	 table.insert(right_aligned, batstatus)
 	 table.insert(right_aligned, netstatus)
      end
