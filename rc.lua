@@ -51,3 +51,4 @@ require("tooltips")
 require("media-bar")
 
 -- awful.util.spawn("nm-applet --sm-disable")
+awful.util.spawn("xcompmgr")
