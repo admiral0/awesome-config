@@ -17,6 +17,7 @@ netstatus = widget({ type = "textbox" })
 vicious.register(netstatus, vicious.widgets.netcfg, " <b>$1</b>", 121,"</b>:<b>")
 tempstatus = widget({ type = "textbox" })
 vicious.register(tempstatus,vicious.widgets.thermal," <b>$1 C°</b> ", 61,"thermal_zone0")
+btn_shutdown = awful.widget.launcher({ image = image(iconpath.."shutdown.png"),  command = cmd_shutdown })
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
                     awful.button({ modkey }, 1, awful.client.movetotag),
@@ -83,6 +84,7 @@ for s = 1, screen.count() do
      end
     table.insert(right_aligned, mytextclock)
     table.insert(right_aligned, mylayoutbox[s])
+    table.insert(right_aligned, btn_shutdown)
 
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
