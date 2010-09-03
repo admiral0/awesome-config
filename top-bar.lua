@@ -1,6 +1,9 @@
 -- {{{ Wibox
 -- Create a textclock widget
 require("desktop")
+require("obvious.battery")
+require("obvious.wlan")
+require("obvious.temp_info")
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
@@ -11,12 +14,9 @@ mywibox = {}
 prompt_widgets = {}
 mylayoutbox = {}
 mytaglist = {}
-batstatus = widget({ type = "textbox" })
-vicious.register(batstatus, vicious.widgets.bat, " <b>$3 $2$1</b>", 60,"BAT1")
-netstatus = widget({ type = "textbox" })
-vicious.register(netstatus, vicious.widgets.netcfg, " <b>$1</b>", 121,"</b>:<b>")
-tempstatus = widget({ type = "textbox" })
-vicious.register(tempstatus,vicious.widgets.thermal," <b>$1 C°</b> ", 61,"thermal_zone0")
+batstatus = obvious.battery()
+netstatus = obvious.wlan()
+tempstatus = obvious.temp_info()
 btn_shutdown = awful.widget.launcher({ image = image(iconpath.."shutdown.png"),  command = cmd_shutdown })
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),

@@ -5,10 +5,9 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("awful.remote")
-require("vicious")
 
 -- Theme TODO
-beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 iconpath="/home/"..os.getenv("USER").."/.config/awesome/icons/"
 -- Global Variables
 require("global")
@@ -52,3 +51,5 @@ require("media-bar")
 
 -- awful.util.spawn("nm-applet --sm-disable")
 awful.util.spawn("xcompmgr")
+-- avoid Java Fun
+awful.util.spawn("wmname LG3D")
