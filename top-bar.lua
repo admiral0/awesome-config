@@ -1,23 +1,21 @@
 -- {{{ Wibox
 -- Create a textclock widget
 require("desktop")
-require("obvious.battery")
-require("obvious.wlan")
-require("obvious.temp_info")
-mytextclock = awful.widget.textclock({ align = "right" })
+--require("obvious.battery")
+--require("obvious.wlan")
+--require("obvious.temp_info")
+mytextclock = awful.widget.textclock()
 
--- Create a systray
-mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
 mywibox = {}
 prompt_widgets = {}
 mylayoutbox = {}
 mytaglist = {}
-batstatus = obvious.battery()
-netstatus = obvious.wlan()
-tempstatus = obvious.temp_info()
-btn_shutdown = awful.widget.launcher({ image = image(iconpath.."shutdown.png"),  command = cmd_shutdown })
+--batstatus = obvious.battery()
+--netstatus = obvious.wlan()
+--tempstatus = obvious.temp_info()
+btn_shutdown = awful.widget.launcher({ image = iconpath.."shutdown.png",  command = cmd_shutdown })
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
                     awful.button({ modkey }, 1, awful.client.movetotag),
@@ -70,31 +68,25 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s,opacity = 0.60 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s })
 
-    -- Create a table with widgets that go to the right
-    right_aligned = {
-        layout = awful.widget.layout.horizontal.rightleft
-    }
-    if s == 1 then
-	 table.insert(right_aligned, mysystray)
-	 table.insert(right_aligned,tempstatus)
-	 table.insert(right_aligned, batstatus)
-	 table.insert(right_aligned, netstatus)
-     end
-    table.insert(right_aligned, mytextclock)
-    table.insert(right_aligned, mylayoutbox[s])
-    table.insert(right_aligned, btn_shutdown)
+    local left_layout = wibox.layout.fixed.horizontal()
+    --left_layout:add(mylauncher)
+    left_layout:add(mytaglist[s])
+    left_layout:add(prompt_widgets[s])
 
-    -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
-        mylauncher,
-        mytaglist[s],
-        prompt_widgets[s],
-        right_aligned,
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.leftright,
-        height = mywibox[s].height
-    }
+    -- Widgets that are aligned to the right
+    local right_layout = wibox.layout.fixed.horizontal()
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(mytextclock)
+    right_layout:add(mylayoutbox[s])
+                    
+    -- Now bring it all together (with the tasklist in the middle)
+    local layout = wibox.layout.align.horizontal()
+    layout:set_left(left_layout)
+    layout:set_middle(mytasklist[s])
+    layout:set_right(right_layout)
+                    
+    mywibox[s]:set_widget(layout)
 end
 -- }}}

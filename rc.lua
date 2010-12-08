@@ -46,13 +46,13 @@ require("keybindings")
 require("rules-signals")
 
 -- Tooltips
-require("tooltips")
+-- require("tooltips")
 
 --Media
-require("media-bar")
+--require("media-bar")
 
 -- awful.util.spawn("nm-applet --sm-disable")
 awful.util.spawn("xcompmgr")
 -- avoid Java Fun
 awful.util.spawn("wmname LG3D")
-awful.util.spawn("conky")
+--awful.util.spawn("conky")

@@ -2,7 +2,7 @@ require('freedesktop.utils')
   freedesktop.utils.terminal = "sakura" 
   freedesktop.utils.icon_theme = 'elementary' -- /usr/share/icons/
   require('freedesktop.menu')
-
+--[[
   menu_items = freedesktop.menu.new()
   myawesomemenu = {
      { "manual", "sakura" .. " -e man awesome", freedesktop.utils.lookup_icon({ icon = 'help' }) },
@@ -19,4 +19,4 @@ require('freedesktop.utils')
   mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
-
+--]]
