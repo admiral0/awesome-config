@@ -1,9 +1,7 @@
 -- {{{ Wibox
 -- Create a textclock widget
 require("desktop")
---require("obvious.battery")
---require("obvious.wlan")
---require("obvious.temp_info")
+require("widgets")
 mytextclock = awful.widget.textclock()
 
 
@@ -12,9 +10,6 @@ mywibox = {}
 prompt_widgets = {}
 mylayoutbox = {}
 mytaglist = {}
---batstatus = obvious.battery()
---netstatus = obvious.wlan()
---tempstatus = obvious.temp_info()
 btn_shutdown = awful.widget.launcher({ image = iconpath.."shutdown.png",  command = cmd_shutdown })
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
@@ -77,10 +72,14 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    if s == 1 then
+        right_layout:add(wibox.widget.systray()) 
+    end
+    if s == 1 then
+        right_layout:add(batwidget) 
+    end
     right_layout:add(mytextclock)
-    right_layout:add(mylayoutbox[s])
-                    
+    right_layout:add(mylayoutbox[s])                    
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
