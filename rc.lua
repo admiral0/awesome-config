@@ -5,6 +5,8 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("awful.remote")
+require("vicious")
+require("vicious.contrib")
 -- Paths
 configpath="/home/"..os.getenv("USER").."/.config/awesome/"
 iconpath= configpath.."icons/"

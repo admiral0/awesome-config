@@ -2,7 +2,7 @@
 -- Create a textclock widget
 require("desktop")
 require("widgets")
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock(" (%d/%m/%Y) %a,<b>%H:%M</b>",60)
 
 
 -- Create a wibox for each screen and add it
@@ -76,6 +76,7 @@ for s = 1, screen.count() do
         right_layout:add(wibox.widget.systray()) 
     end
     if s == 1 then
+        right_layout:add(volwidget)
         right_layout:add(batwidget) 
     end
     right_layout:add(mytextclock)
