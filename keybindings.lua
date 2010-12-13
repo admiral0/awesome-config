@@ -1,7 +1,13 @@
 globalkeys = awful.util.table.join(
     awful.key({			  }, "XF86Sleep",function() awful.util.spawn("sudo pm-suspend") end),
-    awful.key({			  }, "XF86AudioLowerVolume",function() vicious.contrib.pulse.add(-5,"alsa_output.pci-0000_00_1b.0.analog-stereo") end),
-    awful.key({			  }, "XF86AudioRaiseVolume",function() vicious.contrib.pulse.add(5,"alsa_output.pci-0000_00_1b.0.analog-stereo") end),
+    awful.key({			  }, "XF86AudioLowerVolume",function()
+        vicious.contrib.pulse.add(-5,"alsa_output.pci-0000_00_1b.0.analog-stereo")
+        osd.notify("Vol:",pulsevolume("alsa_output.pci-0000_00_1b.0.analog-stereo"))
+    end),
+    awful.key({			  }, "XF86AudioRaiseVolume",function()
+        vicious.contrib.pulse.add(5,"alsa_output.pci-0000_00_1b.0.analog-stereo")
+        osd.notify("Vol:",pulsevolume("alsa_output.pci-0000_00_1b.0.analog-stereo"))
+    end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
