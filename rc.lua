@@ -50,11 +50,8 @@ require("rules-signals")
 -- Tooltips
 -- require("tooltips")
 
+-- Startup programs
+require("startup")
+
 --Media
 --require("media-bar")
-
--- awful.util.spawn("nm-applet --sm-disable")
-awful.util.spawn("xcompmgr")
--- avoid Java Fun
-awful.util.spawn("wmname LG3D")
---awful.util.spawn("conky")
