@@ -19,4 +19,3 @@ volwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.
       awful.button({ }, 4, function () vicious.contrib.pulse.add(5,"alsa_output.pci-0000_00_1b.0.analog-stereo") end),
       awful.button({ }, 5, function () vicious.contrib.pulse.add(-5,"alsa_output.pci-0000_00_1b.0.analog-stereo") end)
       ))
-
