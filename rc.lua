@@ -48,7 +48,7 @@ require("keybindings")
 require("rules-signals")
 
 -- Pretty osd
-require("osd")
+--require("osd")
 
 -- Tooltips
 -- require("tooltips")
