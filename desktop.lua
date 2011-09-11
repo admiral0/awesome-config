@@ -1,8 +1,8 @@
 require('freedesktop.utils')
-  freedesktop.utils.terminal = "sakura" 
-  freedesktop.utils.icon_theme = 'elementary' -- /usr/share/icons/
-  require('freedesktop.menu')
---[[
+freedesktop.utils.terminal = "sakura" 
+freedesktop.utils.icon_theme = 'oxygen' -- /usr/share/icons/
+require('freedesktop.menu')
+---[[
   menu_items = freedesktop.menu.new()
   myawesomemenu = {
      { "manual", "sakura" .. " -e man awesome", freedesktop.utils.lookup_icon({ icon = 'help' }) },

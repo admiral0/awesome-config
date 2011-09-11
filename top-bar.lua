@@ -70,6 +70,7 @@ for s = 1, screen.count() do
 
     mywibox[s].widgets={
 	{
+	  s == 1 and mylauncher or nil,
 	  mytaglist[s],
 	  prompt_widgets[s],
 	  layout=awful.widget.layout.horizontal.leftright 

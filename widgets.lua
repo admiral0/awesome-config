@@ -1,11 +1,12 @@
 batwidget = widget({type="textbox"})
 vicious.register(batwidget,vicious.widgets.bat,
     function (widget,args)
+	dbus_pwr=tonumber(awful.util.pread("qdbus --system org.freedesktop.UPower /org/freedesktop/UPower/devices/battery_BAT1 org.freedesktop.UPower.Device.EnergyRate"))
         if args[1] == "+" then
-            return "<span color='green'>("..args[4].."W) ".."("..args[2].."%|"..args[3]..")</span>"
+            return "<span color='green'>(".. dbus_pwr .."W) ".."("..args[2].."%|"..args[3]..")</span>"
         end
-        local pwr = "(".."?? W)"
-        if 0 > 20 then pwr = "<b>(<span color='red'>"..args[4].."W</span>)</b>" end
+        local pwr = "(".. dbus_pwr .." W)"
+        if dbus_pwr > 20 then pwr = "<b>(<span color='red'>".. dbus_pwr .."W</span>)</b>" end
         local cap = "("..args[2].."%|"..args[3]..")"
         if args[2] < 5 then cap = "<b><span color='red'>("..args[2].."%|"..args[3]..")</span></b>" end
         return pwr.." "..cap
