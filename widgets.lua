@@ -11,7 +11,7 @@ vicious.register(batwidget,vicious.widgets.bat,
         if args[2] < 5 then cap = "<b><span color='red'>("..args[2].."%|"..args[3]..")</span></b>" end
         return pwr.." "..cap
     end,41,"BAT1")
---[[
+---[[
 volwidget = widget({type="textbox"}) 
 vicious.register(volwidget, vicious.contrib.pulse,
     function (widget, args) 
@@ -22,3 +22,6 @@ volwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.
       awful.button({ }, 5, function () vicious.contrib.pulse.add(-5,"alsa_output.pci-0000_00_1b.0.analog-stereo") end)
       ))
 --]]
+
+netwidget = widget({type="textbox"})
+--vicious.register()

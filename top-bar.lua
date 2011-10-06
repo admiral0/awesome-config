@@ -70,13 +70,14 @@ for s = 1, screen.count() do
 
     mywibox[s].widgets={
 	{
-	  s == 1 and mylauncher or nil,
+	  mylauncher,
 	  mytaglist[s],
 	  prompt_widgets[s],
 	  layout=awful.widget.layout.horizontal.leftright 
 	},
 	mylayoutbox[s],
 	mytextclock,
+	s == 1 and volwidget or nil,
 	s == 1 and batwidget or nil,
 	s == 1 and systray or nil,
 	mytasklist[s],

@@ -15,9 +15,26 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Gvolwheel" },
       properties = { floating = true } },
+    { rule = { instance = "Popup" , class = "Aurora" },
+      callback = function(c)
+	      ---[[
+	      awful.client.dockable.set(c,false);
+	      outtext=""
+	      if(awful.client.dockable.get(c)) then
+		      outtext="true"
+	      else
+		      outtext="false"
+	      end
+	      naughty.notify({text=outtext,title="OMG2!"});
+	      awful.client.floating.set(c, true);
+	      c.ontop=true
+	      awful.placement.no_offsreen(c);
+	      --]]
+      end },
+
 
     -- Set Firefox to always map on tags number 2 of screen 1.
-    { rule = { class = "Firefox" },
+    { rule = { class = "Aurora" },
       properties = { size_hints_honor = false } },
     { rule = { class = "Sakura" },
       properties = { size_hints_honor = false } },

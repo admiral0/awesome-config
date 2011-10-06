@@ -19,13 +19,13 @@ require("global")
 layouts =
 {
 	awful.layout.suit.tile.top,
-	awful.layout.suit.fair,
+--	awful.layout.suit.fair,
         awful.layout.suit.max,
 	awful.layout.suit.floating,
---	awful.layout.suit.tile,
---	awful.layout.suit.tile.left,
---	awful.layout.suit.tile.bottom,
-	awful.layout.suit.fair.horizontal
+	awful.layout.suit.tile,
+	awful.layout.suit.tile.left,
+	awful.layout.suit.tile.bottom,
+--	awful.layout.suit.fair.horizontal
 --	awful.layout.suit.spiral,
 --	awful.layout.suit.spiral.dwindle,
 --	awful.layout.suit.max.fullscreen,
@@ -51,7 +51,7 @@ require("rules-signals")
 --require("osd")
 
 -- Tooltips
--- require("tooltips")
+ require("tooltips")
 
 -- Startup programs
 require("startup")
