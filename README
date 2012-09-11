@@ -1,3 +1,11 @@
+Installation
+
+ git clone https://github.com/admiral0/awesome-config.git ~/.config/awesome
+ cd ~/.config/awesome
+ git submodule init
+ git submodule update
+
+
 Configuration of awesome for laptop 
 It works only with awesome from git it seems.
 Features:
