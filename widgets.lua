@@ -1,4 +1,4 @@
-batwidget = widget({type="textbox"})
+batwidget = wibox.widget.textbox()
 vicious.register(batwidget,vicious.widgets.bat,
     function (widget,args)
 	dbus_pwr=tonumber(awful.util.pread("qdbus --system org.freedesktop.UPower /org/freedesktop/UPower/devices/battery_BAT1 org.freedesktop.UPower.Device.EnergyRate"))
@@ -12,7 +12,7 @@ vicious.register(batwidget,vicious.widgets.bat,
         return pwr.." "..cap
     end,41,"BAT1")
 ---[[
-volwidget = widget({type="textbox"}) 
+volwidget = wibox.widget.textbox()
 vicious.register(volwidget, vicious.contrib.pulse,
     function (widget, args) 
         return "<b>("..math.floor(args[1]).."%)</b> "
@@ -23,5 +23,5 @@ volwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.
       ))
 --]]
 
-netwidget = widget({type="textbox"})
+netwidget = wibox.widget.textbox()
 --vicious.register()

@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "feh --bg-fill " .. configpath .. "/theme/background.jpg" }
+theme.wallpaper =  configpath .. "/theme/background.jpg" 
 -- }}}
 
 -- {{{ Styles
