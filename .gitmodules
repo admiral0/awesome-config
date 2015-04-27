@@ -1,3 +1,6 @@
 [submodule "vicious"]
 	path = vicious
 	url = http://git.sysphere.org/vicious
+[submodule "tyrannical"]
+	path = tyrannical
+	url = https://github.com/Elv13/tyrannical.git
