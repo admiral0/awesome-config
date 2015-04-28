@@ -6,15 +6,8 @@ Installation
  git submodule update
 
 
-Configuration of awesome for laptop 
-It works only with awesome from git it seems.
 Features:
  * Separated configuration files
- * freedesktop menu (You need awesome-freedesktop library awesome-fredesktop-git on Archlinux)
-
-Laptop:
-Acer TimelineX
-You should adapt scripts to your hardware
 
 TODO:
  * Battery meter (pure lua implementation)

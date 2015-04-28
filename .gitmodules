@@ -4,3 +4,6 @@
 [submodule "tyrannical"]
 	path = tyrannical
 	url = https://github.com/Elv13/tyrannical.git
+[submodule "blingbling"]
+	path = blingbling
+	url = git://github.com/cedlemo/blingbling.git
