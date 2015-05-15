@@ -5,15 +5,15 @@ awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local blingbling = require("blingbling")
 
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 
-local startup = require("startup")
+require("startup")
 local beautiful = require("theme")
 
-startup.early()
 
 require("errors")
 
@@ -66,8 +66,13 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
-
+local cur_day_month =" <span color=\"#FBB1F9\">%d</span> "
+local cur_month = " <span color=\"#ffff00\">%b</span> "
+local cur_day_week =" <span color=\"#CDEE69\">%a</span>, "
+local cur_hour = "<span font_weight=\"bold\">%H<span color=\"#b9214f\" font_weight=\"normal\">h</span>%M"..
+                 "<span color=\"#b9214f\" font_weight=\"normal\">m</span></span>" 
+mytextclock = awful.widget.textclock(  cur_day_week ..  cur_day_month .. cur_month .. 
+                                          cur_hour)
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -130,7 +135,7 @@ for s = 1, screen.count() do
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+    mytaglist[s] = blingbling.tagslist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
@@ -399,4 +404,3 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-startup.late()
