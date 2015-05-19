@@ -14,7 +14,7 @@ local menubar = require("menubar")
 require("startup")
 local beautiful = require("theme")
 
-
+require("system")
 require("errors")
 
 -- {{{ Variable definitions
