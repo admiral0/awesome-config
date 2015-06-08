@@ -21,7 +21,7 @@ require("errors")
 
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "sakura"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -65,14 +65,6 @@ end
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
 -- {{{ Wibox
--- Create a textclock widget
-local cur_day_month =" <span color=\"#FBB1F9\">%d</span> "
-local cur_month = " <span color=\"#ffff00\">%b</span> "
-local cur_day_week =" <span color=\"#CDEE69\">%a</span>, "
-local cur_hour = "<span font_weight=\"bold\">%H<span color=\"#b9214f\" font_weight=\"normal\">h</span>%M"..
-                 "<span color=\"#b9214f\" font_weight=\"normal\">m</span></span>" 
-mytextclock = awful.widget.textclock(  cur_day_week ..  cur_day_month .. cur_month .. 
-                                          cur_hour)
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -145,14 +137,13 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mylayoutbox[s])
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(mytextclock)
-    right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()

@@ -60,6 +60,17 @@ return args["{sdb2 total_kb}"] / 400
 end,3)
 l_left:add(io_graph)
 
+-- Create a textclock widget
+--local cur_day_month =" <span color=\"#FBB1F9\">%d</span> "
+--local cur_month = " <span color=\"#ffff00\">%b</span> "
+--local cur_day_week =" <span color=\"#CDEE69\">%a</span>, "
+--local cur_hour = "<span font_weight=\"bold\">%H<span color=\"#b9214f\" font_weight=\"normal\">h</span>%M"..
+--                 "<span color=\"#b9214f\" font_weight=\"normal\">m</span></span>" 
+--mytextclock = awful.widget.textclock(  cur_day_week ..  cur_day_month .. cur_month .. cur_hour)
+mytextclock = awful.widget.textclock( "%a, %d %b <b>%H:%M</b>" )
+l_right:add(mytextclock)
+
+
 
 local layout = wibox.layout.align.horizontal()
 layout:set_right(l_right)
